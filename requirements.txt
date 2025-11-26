@@ -1,0 +1,103 @@
+# Enhanced Media Scanner v3.0 ULTRA BUFF - Python Dependencies
+# Python 3.13 required (3.14 not yet supported due to scikit-image compilation issues)
+
+# ============================================================================
+# CORE DEPENDENCIES (Required for basic functionality)
+# ============================================================================
+pillow>=10.0.0          # Image processing and manipulation
+numpy>=1.24.0           # Numerical operations and array handling
+
+# ============================================================================
+# NSFW DETECTION (Recommended - core feature)
+# ============================================================================
+nudenet>=2.0.0          # Deep learning NSFW detection with NudeNet
+tensorflow>=2.13.0      # Backend for NudeNet (CPU version)
+# For GPU acceleration: tensorflow-gpu>=2.13.0
+
+# ============================================================================
+# VIDEO PROCESSING (Optional but recommended)
+# ============================================================================
+opencv-python>=4.8.0    # Video frame extraction and processing
+
+# ============================================================================
+# OBJECT DETECTION & TAGGING (Optional - AI features)
+# ============================================================================
+# Choose ONE of the following:
+# Option 1: YOLOv8 (faster, better for common objects)
+ultralytics>=8.0.0      # YOLOv8 object detection
+torch>=2.0.0            # PyTorch backend for YOLO
+torchvision>=0.15.0     # Vision utilities for PyTorch
+
+# Option 2: CLIP (better semantic understanding, zero-shot)
+# git+https://github.com/openai/CLIP.git
+
+# ============================================================================
+# COLOR ANALYSIS (Optional - enhanced features)
+# ============================================================================
+scikit-learn>=1.3.0     # K-means clustering for dominant color extraction
+scipy>=1.11.0           # Scientific computing for image analysis
+
+# ============================================================================
+# FACE DETECTION & RECOGNITION (Optional - privacy/organization)
+# ============================================================================
+face-recognition>=1.3.0 # Face detection and encoding
+dlib>=19.24.0           # Face recognition backend (requires CMake)
+# Note: dlib installation can be complex on Windows
+# Alternative: install from wheel at https://github.com/jloh02/dlib/releases
+
+# ============================================================================
+# AUDIO TRANSCRIPTION (Optional - audio analysis)
+# ============================================================================
+openai-whisper>=20230314    # Audio transcription with Whisper
+ffmpeg-python>=0.2.0        # Audio/video processing backend
+# Note: Requires ffmpeg binary installed on system
+
+# ============================================================================
+# METADATA EXTRACTION (Optional - enhanced sorting)
+# ============================================================================
+piexif>=1.1.3           # EXIF metadata reading/writing
+mutagen>=1.47.0         # Audio metadata extraction
+
+# ============================================================================
+# GUI DEPENDENCIES (Required for GUI mode)
+# ============================================================================
+# tkinter - included with Python on Windows
+# ttk - included with tkinter
+
+# ============================================================================
+# OPTIONAL PERFORMANCE ENHANCEMENTS
+# ============================================================================
+tqdm>=4.66.0            # Progress bars for CLI
+psutil>=5.9.0           # System resource monitoring
+joblib>=1.3.0           # Parallel processing optimization
+
+# ============================================================================
+# DEVELOPMENT & TESTING (Optional)
+# ============================================================================
+pytest>=7.4.0           # Testing framework
+pytest-cov>=4.1.0       # Test coverage reporting
+
+# ============================================================================
+# INSTALLATION NOTES
+# ============================================================================
+# Minimal installation (NSFW detection only):
+#   pip install pillow numpy nudenet tensorflow opencv-python
+#
+# Recommended installation (most features):
+#   pip install pillow numpy nudenet tensorflow opencv-python ultralytics torch torchvision scikit-learn scipy
+#
+# Full installation (all features):
+#   pip install -r requirements.txt
+#
+# GPU acceleration (NVIDIA CUDA required):
+#   pip install tensorflow-gpu torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#
+# Windows users with dlib issues:
+#   Download precompiled wheel from https://github.com/jloh02/dlib/releases
+#   pip install dlib-19.24.0-cp313-cp313-win_amd64.whl
+#   pip install face-recognition
+#
+# Whisper installation:
+#   1. Install ffmpeg: https://ffmpeg.org/download.html
+#   2. Add ffmpeg to PATH
+#   3. pip install openai-whisper ffmpeg-python
