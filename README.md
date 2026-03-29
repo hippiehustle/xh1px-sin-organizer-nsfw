@@ -10,6 +10,17 @@ Professional-grade AI-powered NSFW media detection and organization tool for Win
 2. Double-click: run_scanner.bat    (starts interactive menu)
 ```
 
+
+### Method 3: Data Recovery App (Images/Videos/ZIP)
+```
+Double-click: run_recovery_app.bat
+```
+
+This launches a dedicated Windows recovery GUI that can:
+- Carve recoverable files from disk image files (`.img`, `.dd`, `.raw`, `.bin`)
+- Recover/copy discoverable files from folders
+- Focus on images, videos, and zip archives only
+
 ### Method 2: Command Line (Advanced)
 ```powershell
 # Scan C: drive and copy files
@@ -81,6 +92,29 @@ CLASSIFY → SFW (safe) / NSFW (explicit) / Uncertain
          ↓
 OUTPUT → JSON report + optional organized folders
 ```
+
+
+## Windows Media Recovery App
+
+A dedicated GUI app is available in `windows_recovery_app.py` for focused data recovery of:
+- **Images:** JPG, PNG, GIF, BMP, WEBP
+- **Videos:** MP4, MOV, AVI, MKV
+- **Archives:** ZIP
+
+### Launch
+```powershell
+py -3.13 windows_recovery_app.py
+```
+Or double-click `run_recovery_app.bat`.
+
+### Recovery Modes
+- **Raw Carve from Disk Image**: Signature-based carving from `.img/.dd/.raw/.bin` files
+- **Folder Recovery Scan**: Copies recoverable media/archive files from an existing folder
+
+### Safety Notes
+- Always recover to a different drive/folder than the source when possible.
+- Run the app as Administrator if you need access to restricted folders/devices.
+- Raw carving may recover files without original names or folder paths.
 
 ---
 
